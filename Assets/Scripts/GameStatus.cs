@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameStatus : MonoBehaviour
 {
-    // git deneme
+    
 
 
     // Config params
@@ -21,7 +21,7 @@ public class GameStatus : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
