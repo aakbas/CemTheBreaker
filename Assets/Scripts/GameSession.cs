@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     
 
@@ -18,7 +18,7 @@ public class GameStatus : MonoBehaviour
 
     private void Awake()
     {
-        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        int gameStatusCount = FindObjectsOfType<GameSession>().Length;
         if (gameStatusCount > 1)
         {
             gameObject.SetActive(false);

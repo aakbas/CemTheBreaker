@@ -7,11 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
 
     //Cached
-    GameStatus gameStatus;
+    GameSession gameStatus;
 
     private void Start()
     {
-        gameStatus = FindObjectOfType<GameStatus>();
+        gameStatus = FindObjectOfType<GameSession>();
     }
 
     public void LoadNextScene()
