@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class GameStatus : MonoBehaviour
 {
+    // git deneme
+
+
     // Config params
    [Range(0.1f,10f)] [SerializeField] float gameSpeed =1f;
     [SerializeField] int pointPerBlockDestroyed=83;
