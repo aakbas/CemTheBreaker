@@ -13,8 +13,12 @@ public class GameSession : MonoBehaviour
    [Range(0.1f,10f)] [SerializeField] float gameSpeed =1f;
     [SerializeField] int pointPerBlockDestroyed=83;
     [SerializeField] Text scoreText ;
+    [SerializeField] bool isAutoPlayEnabled;
     //state variables
     [SerializeField] int currentScore=0;
+    //Cached 
+    
+
 
     private void Awake()
     {
@@ -53,5 +57,8 @@ public class GameSession : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
+    }
 }
