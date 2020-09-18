@@ -10,19 +10,22 @@ public class CemBall : MonoBehaviour
     [SerializeField] float jumX;
     [SerializeField] float jumpY;
     [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] float randomFactor = 0.2f;
 
     //state
     Vector2 paddleToBallVector;
     bool hasStarted=false;
 
-    //Cashed component references
+    //Cached component references
     AudioSource myAudioSource;
+    Rigidbody2D myRigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
         myAudioSource = GetComponent<AudioSource>();
+        myRigidBody = GetComponent<Rigidbody2D>();
 
     }
 
@@ -40,7 +43,7 @@ public class CemBall : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(jumX, jumpY);
+           myRigidBody.velocity = new Vector2(jumX, jumpY);
             hasStarted = true;
         }
      
@@ -57,10 +60,13 @@ public class CemBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
+        Vector2 velocityTweak = new Vector2(UnityEngine.Random.Range(0f,randomFactor), UnityEngine.Random.Range(0,randomFactor));
         if (hasStarted)
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
            myAudioSource.PlayOneShot(clip);
+            myRigidBody.velocity += velocityTweak;
         }
     }
 
